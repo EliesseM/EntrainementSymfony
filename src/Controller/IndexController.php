@@ -18,8 +18,14 @@ final class IndexController extends AbstractController
     #[Route('/about', name: 'app_about')]
     public function about(): Response
     {
-        return $this->render('index/about.html.twig', [
+        $equipe = [
+            ['nom' => 'Alice', 'role' => 'Rédactrice en chef'],
+            ['nom' => 'Bob', 'role' => 'Journaliste'],
+            ['nom' => 'Claire', 'role' => 'Photographe'],
+        ];
 
+        return $this->render('index/about.html.twig', [
+            'equipe' => $equipe,
         ]);
     }
     #[Route('/contact', name: 'app_contact')]

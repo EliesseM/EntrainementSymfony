@@ -1,11 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Á Propos
+  À Propos
 {% endblock %}
 
 {% block body %}
-  <div class="example-wrapper">
-    <h1>Á Propos! ✅</h1>
-  </div>
+  <body class="bg-cover bg-center bg-no-repeat min-h-screen" style="background-image: url('{{ asset('images/journal.jpg') }}');">
+    <div class="max-w-6xl mx-auto py-10 px-4">
+      <h1 class="text-3xl font-bold mb-6 text-white inline-block">À propos de notre équipe</h1>
+      <div>
+        <p class="mb-8 inline-block text-white p-4">Voici les membres de notre équipe de rédaction :</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {% for membre in equipe %}
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+              <h2 class="text-xl font-semibold text-gray-800">{{ membre.nom }}</h2>
+              <p class="text-blue-600 mb-2">{{ membre.role }}</p>
+              <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
 {% endblock %}
